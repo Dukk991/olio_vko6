@@ -59,11 +59,12 @@ private:
 
     int num1;
     int num2;
+    int digit;
     int state;
     float result;
     short op;
 
-    void numberClickerHandler();
+    void numberClickerHandler(int);
     void clearClickerHandler();
     void enterClickerHandler();
     void addSubDivMulClickerHandler();
