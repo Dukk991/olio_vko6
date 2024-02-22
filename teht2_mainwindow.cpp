@@ -6,6 +6,10 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    num1 = 0;
+    num2 = 0;
+    result = 0;
+    state = 1;
 }
 
 MainWindow::~MainWindow()
@@ -15,7 +19,12 @@ MainWindow::~MainWindow()
 
 void MainWindow::addSubDivMulClickerHandler()
 {
+    state = 2;
+}
 
+
+void MainWindow::enterClickerHandler()
+{
     switch (op) {
     case '+':
         result = num1 + num2;
@@ -30,202 +39,99 @@ void MainWindow::addSubDivMulClickerHandler()
         result = num1 / num2;
         break;
     }
-}
 
-
-void MainWindow::enterClickerHandler()
-{
-    ui->EnterButton->setNum(result);
+    ui->label_result->setNum(result);
     result = 0;
 }
 
 void MainWindow::clearClickerHandler()
 {
-    if (state == 1) {
-        ui->label_N1->setNum(0);
-    } else {
-        ui->label_N2->setNum(0);
-        state = 1;
-    }
+    ui->label_N1->setNum(0);
+    ui->label_N2->setNum(0);
+    ui->label_result->setNum(0);
+    state = 1;
+    num1 = 0;
+    num2 = 0;
 }
 
-void MainWindow::numberClickerHandler()
+void MainWindow::numberClickerHandler(int digit)
 {
     if (state == 1) {
-        switch (num1) {
-        case 1:
-            ui->label_N1->setNum(num1);
-            break;
-        case 2:
-            ui->label_N1->setNum(num1);
-            break;
-        case 3:
-            ui->label_N1->setNum(num1);
-            break;
-        case 4:
-            ui->label_N1->setNum(num1);
-            break;
-        case 5:
-            ui->label_N1->setNum(num1);
-            break;
-        case 6:
-            ui->label_N1->setNum(num1);
-            break;
-        case 7:
-            ui->label_N1->setNum(num1);
-            break;
-        case 8:
-            ui->label_N1->setNum(num1);
-            break;
-        case 9:
-            ui->label_N1->setNum(num1);
-            break;
-        case 0:
-            ui->label_N1->setNum(num1);
-            break;
-        }
+        num1 = num1 * 10 + digit;
+        ui->label_N1->setNum(num1);
     } else {
-        switch (num2) {
-        case 1:
-            ui->label_N2->setNum(num2);
-            break;
-        case 2:
-            ui->label_N2->setNum(num2);
-            break;
-        case 3:
-            ui->label_N2->setNum(num2);
-            break;
-        case 4:
-            ui->label_N2->setNum(num2);
-            break;
-        case 5:
-            ui->label_N2->setNum(num2);
-            break;
-        case 6:
-            ui->label_N2->setNum(num2);
-            break;
-        case 7:
-            ui->label_N2->setNum(num2);
-            break;
-        case 8:
-            ui->label_N2->setNum(num2);
-            break;
-        case 9:
-            ui->label_N2->setNum(num2);
-            break;
-        case 0:
-            ui->label_N2->setNum(num2);
-            break;
+        num2 = num2 * 10 + digit;
+        ui->label_N2->setNum(num2);
     }
 }
 
 
 void MainWindow::on_N1button_clicked()
 {
-    if (state == 1) {
-        num1 = 1;
-    } else {
-        num2 = 1;
-    }
-    numberClickerHandler();
+
+    numberClickerHandler(1);
 }
 
 void MainWindow::on_N2button_clicked()
 {
-    if (state == 1) {
-        num1 = 2;
-    } else {
-        num2 = 2;
-    }
-    numberClickerHandler();
+
+    numberClickerHandler(2);
 }
 
 
 void MainWindow::on_N3button_clicked()
 {
-    if (state == 1) {
-        num1 = 3;
-    } else {
-        num2 = 3;
-    }
-    numberClickerHandler();
+
+    numberClickerHandler(3);
 }
 
 
 void MainWindow::on_N4button_clicked()
 {
-    if (state == 1) {
-        num1 = 4;
-    } else {
-        num2 = 4;
-    }
-    numberClickerHandler();
+
+    numberClickerHandler(4);
 }
 
 
 void MainWindow::on_N5button_clicked()
 {
-    if (state == 1) {
-        num1 = 5;
-    } else {
-        num2 = 5;
-    }
-    numberClickerHandler();
+
+    numberClickerHandler(5);
 }
 
 
 void MainWindow::on_N6button_clicked()
 {
-    if (state == 1) {
-        num1 = 6;
-    } else {
-        num2 = 6;
-    }
-    numberClickerHandler();
+
+    numberClickerHandler(6);
 }
 
 
 void MainWindow::on_N7button_clicked()
 {
-    if (state == 1) {
-        num1 = 7;
-    } else {
-        num2 = 7;
-    }
-    numberClickerHandler();
+
+    numberClickerHandler(7);
 }
 
 
 void MainWindow::on_N8button_clicked()
 {
-    if (state == 1) {
-        num1 = 8;
-    } else {
-        num2 = 8;
-    }
-    numberClickerHandler();
+
+    numberClickerHandler(8);
 }
 
 
 void MainWindow::on_N9button_clicked()
 {
-    if (state == 1) {
-        num1 = 9;
-    } else {
-        num2 = 9;
-    }
-    numberClickerHandler();
+
+    numberClickerHandler(9);
 }
 
 
 void MainWindow::on_N0button_clicked()
 {
-    if (state == 1) {
-        num1 = 0;
-    } else {
-        num2 = 0;
-    }
-    numberClickerHandler();
+
+    numberClickerHandler(0);
 }
 
 
