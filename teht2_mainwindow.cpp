@@ -45,7 +45,7 @@ void MainWindow::clearClickerHandler()
         ui->label_N1->setNum(0);
     } else {
         ui->label_N2->setNum(0);
-        state = 2;
+        state = 1;
     }
 }
 
